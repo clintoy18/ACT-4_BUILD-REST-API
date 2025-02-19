@@ -73,7 +73,7 @@ productRouter.put("/product/:id", async(req: Request, res: Response): Promise<an
      }
 })
 
-productRouter.delete("/product:id", async (req: Request, res: Response): Promise<any>=>{
+productRouter.delete("/product/:id", async (req: Request, res: Response): Promise<any>=>{
   try{
     const getProduct = await database.findOne(req.params.id)
 
