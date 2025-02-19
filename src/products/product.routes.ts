@@ -20,7 +20,7 @@ productRouter.get("/products", async (req: Request,res : Response):Promise<any> 
     }
 })
 
-productRouter.get("/product/:id ", async (req: Request, res : Response): Promise<any> =>{
+productRouter.get("/product/:id", async (req: Request, res : Response): Promise<any> =>{
    try{
     const product = await database.findOne(req.params.id)
     
@@ -30,7 +30,7 @@ productRouter.get("/product/:id ", async (req: Request, res : Response): Promise
     
     return res.status(StatusCodes.OK).json({product})
     }catch(error){
-        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
     }
 })
 
@@ -51,8 +51,7 @@ productRouter.post("/createProduct", async (req: Request, res : Response):Promis
 })
 
 //update product data
-
-productRouter.put("/product", async(req: Request, res: Response): Promise<any> => {
+productRouter.put("/product/:id", async(req: Request, res: Response): Promise<any> => {
      try{
         const id = req.params.id
         
@@ -74,7 +73,7 @@ productRouter.put("/product", async(req: Request, res: Response): Promise<any> =
      }
 })
 
-productRouter.delete("/delete", async (req: Request, res: Response): Promise<any>=>{
+productRouter.delete("/product:id", async (req: Request, res: Response): Promise<any>=>{
   try{
     const getProduct = await database.findOne(req.params.id)
 
