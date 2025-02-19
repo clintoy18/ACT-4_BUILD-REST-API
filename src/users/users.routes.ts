@@ -1,12 +1,12 @@
 import express, { Request, Response} from "express"
-import { UnitUser , User } from "./user.interface"
+import { UnitUser, User } from "./user.interface"
 import { StatusCodes } from "http-status-codes"
 import * as database from "./user.database" 
 
 export const userRouter = express.Router()
+            
 
-
-userRouter.get("/users", async (_req : Request, res : Response) => {
+userRouter.get("/users", async ( req : Request, res : Response): Promise<any> => {
     try {
         const allUsers : UnitUser[] = await database.findAll()
 
@@ -21,12 +21,12 @@ userRouter.get("/users", async (_req : Request, res : Response) => {
 })
 
 
-userRouter.get("/user/:id", async (req : Request, res: Response) => {
+userRouter.get("/user/:id", async ( req : Request, res: Response): Promise<any> => {
    try{
     const user : UnitUser = await database.findOne(req.params.id)
 
     if(!user){
-        return res.status(StatusCodes.NOT_FOUND).json({msg: "`No users at this time...`"})
+        return res.status(StatusCodes.NOT_FOUND).json({msg: 'No users at this time...'})
     }
 
     return res.status(StatusCodes.OK).json({user})
@@ -37,7 +37,7 @@ userRouter.get("/user/:id", async (req : Request, res: Response) => {
 })
 
 
-userRouter.post("/register", async (req: Request, res: Response) => {
+userRouter.post("/register", async (req: Request, res: Response) : Promise<any> => {
     try{
         const { username, email, password } = req.body 
         
@@ -48,7 +48,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
         const user = await database.findByEmail(email)
 
         if(user){
-            return res.status(StatusCodes.BAD_REQUEST).json({msg: "`Email already exist`"})
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Email already exist'})
         }
 
         const newUser = await database.create(req.body)
@@ -62,7 +62,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
 
 })
 
-userRouter.post("/login", async (req: Request, res: Response) => {
+userRouter.post("/login", async (req: Request, res: Response) : Promise<any> => {
     try{
         const {email, password} = req.body
         
@@ -73,10 +73,10 @@ userRouter.post("/login", async (req: Request, res: Response) => {
         const user = await database.findByEmail(email)
 
         if(!user){
-            return res.status(StatusCodes.NOT_FOUND).json({msg: `Email not found`})
+            return res.status(StatusCodes.NOT_FOUND).json({msg: `User with this Email not found`})
         }
         
-        const comparePassword = await database.comparePassword(password, password)
+        const comparePassword = await database.comparePassword(email, password)
 
         if(!comparePassword){
             return res.status(StatusCodes.BAD_REQUEST).json({msg: `Invalid password`})
@@ -90,9 +90,9 @@ userRouter.post("/login", async (req: Request, res: Response) => {
         
 })
 
-userRouter.put('/user.:id', async (req: Request, res: Response) => {
+userRouter.put('/user/:id', async (req: Request, res: Response) : Promise<any> => {
     try{
-        const {username,email,password } = req.params
+        const {username,email,password } = req.body
 
         const getUser = await database.findOne(req.params.id)
 
@@ -112,7 +112,7 @@ userRouter.put('/user.:id', async (req: Request, res: Response) => {
     }    
 })
 
-userRouter.delete("/user/:id", async (req: Request, res: Response) => {
+userRouter.delete("/user/:id", async (req: Request, res: Response) : Promise<any> => {
 
     try{
         const id = (req.params.id)

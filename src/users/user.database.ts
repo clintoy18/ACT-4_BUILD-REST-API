@@ -7,7 +7,7 @@ import fs from "fs"
 let users: Users = loadUsers()
 
 
-/// this function reads the data from a file called "users.json" using the fs module. if data is empt it logs an
+/// this function reads the data from a file called "users.json" using the fs module. if data is empt it logs an error
 function loadUsers (): Users {
     try {
         const data = fs.readFileSync("./users.json", "utf-8") // read the file from fs module
@@ -65,7 +65,7 @@ export const create = async (userData : UnitUser) : Promise<UnitUser | null> => 
 
 
 //
-export const findByEmail = async (user_email: string) : Promise<null |UnitUser>=>{
+export const findByEmail = async (user_email: string) : Promise<null |UnitUser> => {
 
     const allUsers = await findAll();
 
