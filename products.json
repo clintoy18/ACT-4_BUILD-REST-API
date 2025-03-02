@@ -1,1 +1,9 @@
-{"41b1e875-0dca-4fc3-97d0-c0daa3e8b963":{"id":"41b1e875-0dca-4fc3-97d0-c0daa3e8b963","name":"Rolex-Daytona","price":2000,"quantity":1,"image":"image_url.png"}}
+{
+    "41b1e875-0dca-4fc3-97d0-c0daa3e8b963": {
+        "id": "41b1e875-0dca-4fc3-97d0-c0daa3e8b963",
+        "name": "Rolex-Daytona",
+        "price": 2000,
+        "quantity": 1,
+        "image": "image_url.png"
+    }
+}

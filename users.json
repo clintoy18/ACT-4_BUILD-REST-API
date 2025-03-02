@@ -1,1 +1,26 @@
-{"2250aa77-496b-4905-ad98-0d833ae9a71a":{"id":"2250aa77-496b-4905-ad98-0d833ae9a71a","username":"stephen123","email":"test@gmail.com","password":"$2a$10$CLPGBTERJEjvhgpnvX8r3.O/UNNdg2ePFVfy6hHXK.ZJGMykXz5QC"}}
+{
+    "2250aa77-496b-4905-ad98-0d833ae9a71a": {
+        "id": "2250aa77-496b-4905-ad98-0d833ae9a71a",
+        "username": "stephen123",
+        "email": "test@gmail.com",
+        "password": "$2a$10$CLPGBTERJEjvhgpnvX8r3.O/UNNdg2ePFVfy6hHXK.ZJGMykXz5QC"
+    },
+    "b12f61e0-1a7f-49a6-b56a-6c066aa71ce1": {
+        "id": "b12f61e0-1a7f-49a6-b56a-6c066aa71ce1",
+        "username": "gwapoko123",
+        "email": "test1@gmail.com",
+        "password": "$2a$10$vgGBp66EQ1P3X5J8tOQA7.BW8WaV2hErh0R4anqFn0fKjwURGkOTe"
+    },
+    "096fb8ad-cf35-4e77-889c-ec6ebd373423": {
+        "id": "096fb8ad-cf35-4e77-889c-ec6ebd373423",
+        "username": "gwapoko1234",
+        "email": "test3@gmail.com",
+        "password": "$2a$10$vChFMU9mlk.VoUZ3OcGkkutT3sqplIU45RSK0HqwFZkH7tYI5t9X2"
+    },
+    "82cf332a-17e0-4d12-9e7e-eee279db3787": {
+        "id": "82cf332a-17e0-4d12-9e7e-eee279db3787",
+        "username": "gwapoko1234",
+        "email": "test4@gmail.com",
+        "password": "$2a$10$wBdFWMfJaWsvheqav1aa5.CRMoWSSGk9NpTkwTBegQ5K5MWdDkCam"
+    }
+}

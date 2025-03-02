@@ -46,10 +46,12 @@ userRouter.post("/register", async (req: Request, res: Response) : Promise<any> 
         }
 
         const user = await database.findByEmail(email)
+       
 
         if(user){
             return res.status(StatusCodes.BAD_REQUEST).json({msg: 'Email already exist'})
         }
+        
 
         const newUser = await database.create(req.body)
 
